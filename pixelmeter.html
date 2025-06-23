@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Meter CSS | BKT9GD</title>
+    <link rel="icon" href="pixelmetericon.png" type="image/png">
+    <link rel="stylesheet" href="pixelmeter.css">
+</head>
+<body>
+    <div id="controles">
+        <div style="text-align: center;">
+            <h1>Pixel Meter CSS</h1>
+        <p id="last">Ultimo Ingresado:256x256px e Intensidad de borde 0px</p></div>
+        <h3>Escribir <strong>UNICAMENTE</strong> el numero, sin "px"</h3>
+        <label for="div-width">Ancho (Width):</label>
+        <input id="div-width" type="text" placeholder="Width here.">
+        <div class="space-h"></div>
+
+        <label for="div-height">Alto (Height):</label>
+        <input type="text" id="div-height" placeholder="Height here.">
+        <div class="space-h"></div>
+
+        <label for="round-border">Intensidad de borde redondeado:</label>
+        <input type="text" id="round-border" placeholder="0 sin redondeo">
+
+        <div class="space-h"></div>
+        <div class="center">
+            <button id="adjustButton">Ajustar</button>
+        </div>
+        <div class="space-h"></div>
+        <div class="center">
+            <div>
+                <button id="cleanButton">Vaciar</button></div>
+                <div class="space-h"></div>
+                <div class="space-w"></div>
+                <button id="setLast">Set Last Value</button></div>
+        <div class="space-h"></div>
+    </div>
+    <div class="separador"></div>
+    <div class="space-h"></div>
+    <div class="center"><div id="div-test"></div></div>
+    <script src="pixelmeter.js"></script>
+</body>
+</html>
