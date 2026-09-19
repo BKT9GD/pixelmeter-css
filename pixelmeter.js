@@ -1,3 +1,9 @@
+let params = new URLSearchParams(window.location.search);
+
+const widthParam = Number(params.get("width"));
+const heightParam = Number(params.get("height"));
+const roundParam = Number(params.get("round"));
+
 /** @type {HTMLParagraphElement} */
 let last = document.getElementById('last');
 
@@ -55,6 +61,36 @@ function changeSize(){
     }
 }
 
+function paramChangeSize(){
+    width = widthParam;
+    height = heightParam;
+    roundValue = roundParam;
+    divModifier = document.getElementById('div-test');
+
+    if (!isNaN(width) && width != ''){
+        divModifier.style.width = ` ${width}px`;
+        valuesInserted[1] = true;
+        lastInserted[1] = width;
+    } else {
+        alert('Parametro Incorrecto (Width)');
+
+    }
+    if (!isNaN(height) && height != ''){
+        divModifier.style.height = `${height}px`;
+        valuesInserted[0] = true;
+        lastInserted[0] = height;
+    } else {
+        alert('Parametro Incorrecto (Height)');
+    }
+    if (!isNaN(roundValue) && roundValue != ''){
+        divModifier.style.borderRadius = `${roundValue}px`;
+        valuesInserted[2] = true
+        lastInserted[2] = roundValue;
+    } else {
+        alert('Parametro Incorrecto (Borde Redondeado)');
+    }
+}
+
 function changeValues(value){
     width.value = value;
     height.value = value;
@@ -87,3 +123,22 @@ cleanButton.addEventListener('click', () => {
 lastButton.addEventListener('click', () => {
     setLastValue()
 })
+
+if (widthParam != null & widthParam != ""){
+    width.value = widthParam
+}
+
+if (heightParam != null & heightParam != ""){
+    height.value = heightParam
+}
+
+if (roundParam != null & roundParam != ""){
+    roundValue.value = roundParam
+}
+
+if (widthParam != null & widthParam != "" & heightParam != null & heightParam != "" & roundParam != null & roundParam != ""){
+    if (widthParam != NaN & heightParam != NaN & roundParam != NaN){
+       paramChangeSize();
+       last.textContent = `Ultimo Ingresado:${width}x${height}px e Intensidad de borde ${roundValue}px`;
+    }
+}
